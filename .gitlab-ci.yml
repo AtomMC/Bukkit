@@ -1,0 +1,6 @@
+image: gradle:alpine
+build:
+    script:
+        - gradle build
+    artifacts:
+        - build/libs/
