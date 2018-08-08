@@ -3,4 +3,5 @@ build:
     script:
         - gradle build
     artifacts:
-        - build/libs/
+        paths:
+            - build/libs/
