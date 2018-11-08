@@ -11,6 +11,9 @@ compileJava.options.encoding = 'UTF-8'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://hub.spigotmc.org/nexus/content/repositories/snapshots"
+    }
 }
 
 dependencies {
@@ -21,4 +24,5 @@ dependencies {
     compile 'com.google.guava:guava:23.0'
     compile 'com.google.code.gson:gson:2.8.4'
     compile 'org.yaml:snakeyaml:1.21'
+	compile 'net.md-5:bungeecord-chat:1.12-SNAPSHOT'
 }
