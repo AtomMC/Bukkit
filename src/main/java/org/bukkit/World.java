@@ -1596,6 +1596,10 @@ public interface World extends PluginMessageRecipient, Metadatable {
             return lookup.get(id);
         }
 
+        public static void registerEnvironment(final Environment env) {
+            Environment.lookup.put(env.getId(), env);
+        }
+
         static {
             for (Environment env : values()) {
                 lookup.put(env.getId(), env);
