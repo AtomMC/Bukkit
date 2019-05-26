@@ -540,9 +540,11 @@ public enum Material {
     RECORD_12(2267, 1),
     ;
 
+
     private final int id;
     private final Constructor<? extends MaterialData> ctor;
     private static Material[] byId = new Material[32000];
+    private static Material[] blockById = new Material[4096];
     private final static Map<String, Material> BY_NAME = Maps.newHashMap();
     private final int maxStack;
     private final short durability;
@@ -651,7 +653,10 @@ public enum Material {
      * @return true if this material is a block
      */
     public boolean isBlock() {
-        return id < 256;
+        for (Material material : blockById) {
+            if (this == material) return true;
+        }
+        return false;
     }
 
     /**
@@ -1465,5 +1470,22 @@ public enum Material {
             return material;
         }
         return null;
+    }
+
+    @Nullable
+    public static Material addBlockMaterial(Material material) {
+        if (blockById[material.id] == null) {
+            blockById[material.id] = material;
+            return material;
+        }
+        return null;
+    }
+
+    public static Material getBlockMaterial(final int id) {
+        if (blockById.length > id && id >= 0) {
+            return blockById[id];
+        } else {
+            return null;
+        }
     }
 }
