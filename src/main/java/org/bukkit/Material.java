@@ -653,10 +653,14 @@ public enum Material {
      * @return true if this material is a block
      */
     public boolean isBlock() {
-        for (Material material : blockById) {
-            if (this == material) return true;
+        if (id < 256) return true;
+        else {
+            for (Material material : blockById) {
+                if (this == material) return true;
+            }
+            return false;
         }
-        return false;
+
     }
 
     /**
