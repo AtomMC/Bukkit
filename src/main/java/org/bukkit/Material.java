@@ -65,7 +65,6 @@ import com.google.common.collect.Maps;
 import org.bukkit.material.Banner;
 import org.bukkit.material.Observer;
 
-import javax.annotation.Nullable;
 
 /**
  * An enum of all material IDs accepted by the official server and client
@@ -1465,7 +1464,7 @@ public enum Material {
         }
     }
 
-    @Nullable
+
     public static Material addMaterial(Material material) {
         if (byId[material.id] == null) {
             byId[material.id] = material;
@@ -1476,7 +1475,7 @@ public enum Material {
         return null;
     }
 
-    @Nullable
+
     public static Material addBlockMaterial(Material material) {
         if (blockById[material.id] == null) {
             blockById[material.id] = material;
